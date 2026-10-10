@@ -12,14 +12,13 @@ java {
 
 compileJava {
     options.encoding = 'UTF-8'
-    options.release = 8
 }
 
 dependencies {
-    api 'org.bouncycastle:bcprov-jdk15to18:1.83'
-    api 'com.google.guava:guava:33.4.0-android'
-    api 'com.google.protobuf:protobuf-javalite:4.33.4'
+    api project(':bcprov-source')
+    api project(':guava-source')
+    api project(':protobuf-lite-source')
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
-    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation project(':slf4j-api-source')
     implementation 'net.jcip:jcip-annotations:1.0'
 }

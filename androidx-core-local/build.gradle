@@ -1,0 +1,26 @@
+plugins { id 'com.android.library' }
+android {
+    namespace 'androidx.core'
+    compileSdk 37
+    defaultConfig { minSdk 14; consumerProguardFiles 'src/main/keepRules/rules.keep' }
+    buildFeatures { aidl true }
+    sourceSets { main { manifest.srcFile 'src/main/AndroidManifest.xml'; java.srcDirs = ['src/main/java']; res.srcDirs = ['src/main/res']; aidl.srcDirs = ['src/main/stableAidl'] } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    androidResources { noCompress += ['ttf'] }
+}
+dependencies {
+    api 'androidx.annotation:annotation:1.10.0'
+    api 'androidx.annotation:annotation-experimental:1.4.1'
+    api 'androidx.lifecycle:lifecycle-runtime:2.10.0'
+    api 'androidx.lifecycle:lifecycle-common:2.10.0'
+    api project(':androidx-versionedparcelable-local')
+    api 'androidx.core:core-viewtree:1.0.0'
+    api project(':guava-source')
+    api 'org.jspecify:jspecify:1.0.0'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2'
+    implementation 'androidx.collection:collection:1.4.2'
+    implementation 'androidx.concurrent:concurrent-futures:1.0.0'
+    implementation 'androidx.interpolator:interpolator:1.0.0'
+    implementation 'androidx.tracing:tracing:1.2.0'
+    annotationProcessor project(':androidx-versionedparcelable-compiler-local')
+}

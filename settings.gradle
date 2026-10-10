@@ -17,4 +17,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = 'wallet'
-include ':app', ':bitcoinj-core'
+include ':androidx-activity-local', ':androidx-core-local', ':androidx-appcompat-resources-local', ':androidx-appcompat-local', ':androidx-recyclerview-local', ':androidx-swiperefreshlayout-local',
+        ':androidx-versionedparcelable-local', ':androidx-versionedparcelable-compiler-local',
+        ':app', ':bitcoinj-core', ':bcprov-source', ':guava-source', ':protobuf-lite-source', ':slf4j-api-source', ':slf4j-android-source', ':zxing-core-source', ':zxing-android-embedded-local'

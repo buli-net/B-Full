@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'wallet.main'
+    compileSdk 37
+
+    defaultConfig {
+        applicationId 'wallet.main'
+        minSdk 26
+        targetSdk 37
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles project.android.getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packaging {
+        resources {
+            merges += 'META-INF/services/org.slf4j.spi.SLF4JServiceProvider'
+        }
+    }
+}
+
+configurations.configureEach {
+    exclude group: 'com.google.errorprone', module: 'error_prone_annotations'
+    exclude group: 'com.google.code.findbugs', module: 'annotations'
+}
+
+dependencies {
+    implementation project(':androidx-activity-local')
+    implementation project(':androidx-core-local')
+    implementation project(':androidx-appcompat-local')
+    implementation project(':androidx-recyclerview-local')
+    implementation project(':androidx-swiperefreshlayout-local')
+    implementation project(':zxing-android-embedded-local')
+    implementation project(':zxing-core-source')
+
+    implementation project(':bitcoinj-core')
+    implementation project(':bcprov-source')
+    implementation project(':slf4j-android-source')
+
+}
