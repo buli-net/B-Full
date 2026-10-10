@@ -1,0 +1,13 @@
+plugins { id 'java-library' }
+
+java { sourceCompatibility = JavaVersion.VERSION_1_8; targetCompatibility = JavaVersion.VERSION_1_8 }
+compileJava { options.encoding = 'UTF-8' }
+
+dependencies {
+    implementation 'com.google.guava:failureaccess:1.0.3'
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
+    api project(':jspecify-source')
+    compileOnly 'org.checkerframework:checker-qual:3.49.2'
+    compileOnly 'com.google.errorprone:error_prone_annotations:2.36.0'
+    compileOnly 'com.google.j2objc:j2objc-annotations:3.0.0'
+}
