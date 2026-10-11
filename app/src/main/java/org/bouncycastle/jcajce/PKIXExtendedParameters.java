@@ -256,6 +256,7 @@ public class PKIXExtendedParameters
     /**
      * @deprecated Use 'getValidityDate' instead (which can return null).
      */
+    @Deprecated
     public Date getDate()
     {
         return new Date(date.getTime());
