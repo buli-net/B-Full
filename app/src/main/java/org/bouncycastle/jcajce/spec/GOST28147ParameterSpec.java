@@ -64,6 +64,7 @@ public class GOST28147ParameterSpec
     /**
      * @deprecated use getSBox()
      */
+    @Deprecated
     public byte[] getSbox()
     {
         return Arrays.clone(sBox);
