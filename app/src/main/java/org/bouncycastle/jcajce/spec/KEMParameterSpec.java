@@ -3,6 +3,7 @@ package org.bouncycastle.jcajce.spec;
 /**
  *  @deprecated use KTSParameterSpec
  */
+@Deprecated
 public class KEMParameterSpec
     extends KTSParameterSpec
 {
