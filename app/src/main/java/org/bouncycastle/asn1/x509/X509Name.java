@@ -253,12 +253,14 @@ public class X509Name
      * look up table translating OID values into their common symbols
      * @deprecated use DefaultSymbols
      */
+    @Deprecated
     public static final Hashtable OIDLookUp = DefaultSymbols;
 
     /**
      * look up table translating string values into their OIDS -
      * @deprecated use DefaultLookUp
      */
+    @Deprecated
     public static final Hashtable SymbolLookUp = DefaultLookUp;
 
     private static final Boolean TRUE = new Boolean(true); // for J2ME compatibility
@@ -406,6 +408,7 @@ public class X509Name
      * the principal will be a list of constructed sets, each containing an (OID, String) pair.
      * @deprecated use X500Name.getInstance()
      */
+    @Deprecated
     public X509Name(
         ASN1Sequence  seq)
     {
@@ -469,6 +472,7 @@ public class X509Name
      * with the ordering specified below.
      * @deprecated use an ordered constructor! The hashtable ordering is rarely correct
      */
+    @Deprecated
     public X509Name(
         Hashtable  attributes)
     {
@@ -502,6 +506,7 @@ public class X509Name
      * ASN.1 counterparts.
      * @deprecated use X500Name, X500NameBuilder
      */
+    @Deprecated
     public X509Name(
         Vector                   ordering,
         Hashtable                attributes,
@@ -545,6 +550,7 @@ public class X509Name
      * Takes two vectors one of the oids and the other of the values.
      * @deprecated use X500Name, X500NameBuilder
      */
+    @Deprecated
     public X509Name(
         Vector  oids,
         Vector  values)
@@ -559,6 +565,7 @@ public class X509Name
      * ASN.1 counterparts.
      * @deprecated use X500Name, X500NameBuilder
      */
+    @Deprecated
     public X509Name(
         Vector                  oids,
         Vector                  values,
@@ -594,6 +601,7 @@ public class X509Name
      * some such, converting it into an ordered set of name attributes.
      * @deprecated use X500Name, X500NameBuilder
      */
+    @Deprecated
     public X509Name(
         String  dirName)
     {
@@ -607,6 +615,7 @@ public class X509Name
      * in converter.
      * @deprecated use X500Name, X500NameBuilder
      */
+    @Deprecated
     public X509Name(
         String                  dirName,
         X509NameEntryConverter  converter)
@@ -621,6 +630,7 @@ public class X509Name
      * last element in the string.
      * @deprecated use X500Name, X500NameBuilder
      */
+    @Deprecated
     public X509Name(
         boolean reverse,
         String  dirName)
