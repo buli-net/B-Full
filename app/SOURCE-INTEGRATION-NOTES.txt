@@ -1,0 +1,1 @@
+AndroidX is consumed as coordinated Android AAR dependencies. The AndroidX monorepo includes multiplatform and generated source sets and must not be copied wholesale into app/src/main/java.
