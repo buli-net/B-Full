@@ -1,0 +1,13 @@
+B-Lite direct source integration
+
+Copied Java sources into app/src/main/java from supplied source archives:
+- ZXing Core 3.4.1 (core-3.4.1-sources.jar)
+- Protobuf Java Lite 4.36.2
+- Guava Android 33.7.2
+- SLF4J API 2.0.17
+- SLF4J Android backend 2.0.17-0
+
+bitcoinj and Bouncy Castle were already in the selected base ZIP.
+AndroidX remains a Gradle dependency because the uploaded androidx-androidx-main.zip is the complete AndroidX monorepo, not a ready-to-embed release source package: it requires module-specific generated R classes, resources, manifests, and build configuration. ZXing Android Embedded remains a dependency for the same reason: the supplied ZIP contains sample sources and project files, but no production library source tree.
+
+No build success is claimed.

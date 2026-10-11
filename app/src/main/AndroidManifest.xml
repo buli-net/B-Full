@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/tools">
+    <uses-permission ns0:name="android.permission.INTERNET" />
+    <uses-permission ns0:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission ns0:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission ns0:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission ns0:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission ns0:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission ns0:name="android.permission.WAKE_LOCK" />
+    <uses-permission ns0:name="android.permission.NFC" />
+    <uses-permission ns0:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-feature ns0:name="android.hardware.nfc" ns0:required="false" />
+    <uses-feature ns0:name="android.hardware.nfc.hce" ns0:required="false" />
+    <application ns0:allowBackup="false" ns0:fullBackupContent="false" ns0:icon="@drawable/app_icon" ns0:label="@string/app_name" ns0:supportsRtl="true" ns0:theme="@style/AppTheme" ns0:appComponentFactory="androidx.core.app.CoreComponentFactory" ns0:enableOnBackInvokedCallback="true" ns0:name="androidx.fragment.app.LeakCanaryApp">
+        <receiver ns0:name="wallet.widget.BalanceWidgetProvider" ns0:enabled="true" ns0:exported="true">
+            <intent-filter>
+                <action ns0:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data ns0:name="android.appwidget.provider" ns0:resource="@xml/widget_balance_info" />
+        </receiver>
+        <service ns0:name="wallet.main.BitcoinSyncService" ns0:enabled="true" ns0:exported="false" ns0:foregroundServiceType="dataSync" />
+        <receiver ns0:name="wallet.main.BitcoinSyncBootReceiver" ns0:enabled="true" ns0:exported="false">
+            <intent-filter>
+                <action ns0:name="android.intent.action.BOOT_COMPLETED" />
+                <action ns0:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <activity ns0:name="wallet.transaction.TransactionDetailActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.main.SyncActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.send.SendActivity" ns0:screenOrientation="portrait" ns0:exported="true" ns0:launchMode="singleTop">
+            <intent-filter ns0:label="@string/menu_send">
+                <action ns0:name="android.intent.action.VIEW" />
+                <data ns0:scheme="bitcoin" />
+                <data ns0:scheme="BITCOIN" />
+                <category ns0:name="android.intent.category.DEFAULT" />
+                <category ns0:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter ns0:label="@string/menu_send">
+                <action ns0:name="android.nfc.action.NDEF_DISCOVERED" />
+                <data ns0:scheme="bitcoin" />
+                <category ns0:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter ns0:label="@string/menu_send">
+                <action ns0:name="android.intent.action.VIEW" />
+                <data ns0:mimeType="application/bitcoin-paymentrequest" />
+                <category ns0:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter ns0:label="@string/menu_send">
+                <action ns0:name="android.nfc.action.NDEF_DISCOVERED" />
+                <data ns0:mimeType="application/bitcoin-paymentrequest" />
+                <category ns0:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter ns0:label="@string/menu_send">
+                <action ns0:name="android.nfc.action.NDEF_DISCOVERED" />
+                <data ns0:mimeType="application/bitcoin-paymentrequest" />
+                <category ns0:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity ns0:name="wallet.request.RequestCoinsActivity" ns0:screenOrientation="portrait" />
+        <service ns0:name="wallet.nfc.PaymentRequestHceService" ns0:enabled="true" ns0:exported="true" ns0:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action ns0:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+            </intent-filter>
+            <meta-data ns0:name="android.nfc.cardemulation.host_apdu_service" ns0:resource="@xml/nfc_payment_request_service" />
+        </service>
+        <activity ns0:name="wallet.backup.BackupRecoveryActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.backup.BackupActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.backup.RestoreActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.security.SecurityActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.contacts.AddressBookActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.tools.WalletImportWifActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.tools.WatchOnlyWalletActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.tools.PaperWalletActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.tools.CoinControlActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.about.AboutActivity" ns0:screenOrientation="portrait" />
+        <activity ns0:name="wallet.main.MainActivity" ns0:screenOrientation="portrait" ns0:exported="true">
+            <intent-filter>
+                <action ns0:name="android.intent.action.MAIN" />
+                <category ns0:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data ns0:name="android.app.shortcuts" ns0:resource="@xml/app_shortcuts" />
+        </activity>
+        <activity ns0:name="android.app.Activity" />
+        <activity ns0:name="androidx.customview.widget.ExploreByTouchHelperTestActivity" />
+        <activity ns0:name="androidx.customview.widget.TestActivity" />
+        <activity ns0:name="androidx.drawerlayout.widget.DrawerCustomThemeActivity" ns0:theme="@style/CustomDrawerLayoutTheme" />
+        <activity ns0:name="androidx.drawerlayout.widget.DrawerNoThemeActivity" />
+        <activity ns0:name="androidx.drawerlayout.widget.DrawerSingleStartActivity" />
+        <provider ns0:name="androidx.startup.InitializationProvider" ns0:authorities="${applicationId}.androidx-startup" ns0:exported="false" ns1:node="merge">
+            <meta-data ns0:name="androidx.emoji2.text.EmojiCompatInitializer" ns0:value="androidx.startup" />
+        </provider>
+        <activity ns0:name="androidx.fragment.app.test.FragmentTestActivity" />
+        <activity ns0:name="androidx.fragment.app.test.EmptyFragmentTestActivity" />
+        <activity ns0:name="androidx.fragment.app.test.FragmentResultActivity" />
+        <activity ns0:name="androidx.fragment.app.test.LoaderActivity" />
+        <activity ns0:name="androidx.fragment.app.test.NewIntentActivity" ns0:launchMode="singleInstance" />
+        <activity ns0:name="androidx.fragment.app.test.NewIntentProviderActivity" ns0:launchMode="singleInstance" />
+        <activity ns0:name="androidx.fragment.app.test.NonConfigOnStopActivity" />
+        <activity ns0:name="androidx.fragment.app.test.HangingFragmentActivity" />
+        <activity ns0:name="androidx.fragment.app.test.ViewModelActivity" />
+        <activity ns0:name="androidx.fragment.app.ActivityLeakActivity" />
+        <activity ns0:name="androidx.fragment.app.ContentViewActivity" />
+        <activity ns0:name="androidx.fragment.app.ContainerViewActivity" />
+        <activity ns0:name="androidx.fragment.app.OnBackPressedFragmentActivity" />
+        <activity ns0:name="androidx.fragment.app.OnResumeTestActivity" />
+        <activity ns0:name="androidx.fragment.app.FragmentArchLifecycleActivity" />
+        <activity ns0:name="androidx.fragment.app.FragmentSavedStateActivity" />
+        <activity ns0:name="androidx.fragment.app.FragmentFinishEarlyTestActivity" />
+        <activity ns0:name="androidx.fragment.app.SimpleContainerActivity" />
+        <activity ns0:name="androidx.fragment.app.ReplaceInCreateActivity" />
+        <activity ns0:name="androidx.fragment.app.ResultActivity1" />
+        <activity ns0:name="androidx.fragment.app.ResultActivity2" />
+        <activity ns0:name="androidx.fragment.app.ResultActivity3" />
+        <activity ns0:name="androidx.fragment.app.DialogActivity" ns0:theme="@style/DialogTheme" />
+        <activity ns0:name="androidx.fragment.app.TestAppCompatActivity" ns0:theme="@style/Theme.AppCompat.Light" />
+        <activity ns0:name="androidx.fragment.app.AddTransitionFragmentInActivity" />
+        <activity ns0:name="androidx.fragment.app.TestActivity" />
+        <activity ns0:name="androidx.fragment.app.FragmentViewModelLazyTest$TestActivity" />
+        <activity ns0:name="androidx.lifecycle.viewmodel.savedstate.FakingSavedStateActivity" />
+        <activity ns0:name="androidx.lifecycle.viewmodel.savedstate.SavedStateFactoryTest$MyActivity" />
+        <activity ns0:name="androidx.activity.ComponentActivity" />
+        <receiver ns0:name=".ProfileInstallReceiver" ns0:directBootAware="false" ns0:enabled="true" ns0:exported="true" ns0:permission="android.permission.DUMP">
+            <intent-filter>
+                <action ns0:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action ns0:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action ns0:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action ns0:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+        <activity ns0:name="androidx.vectordrawable.graphics.drawable.tests.DrawableStubActivity" />
+    </application>
+    <permission ns0:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" ns0:protectionLevel="signature" />
+    <uses-permission ns0:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission ns0:name="android.permission.VIBRATE" />
+    <uses-permission ns0:name="android.permission.READ_CONTACTS" />
+    <uses-permission ns0:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission ns0:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>

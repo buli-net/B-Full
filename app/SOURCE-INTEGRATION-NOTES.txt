@@ -1,0 +1,2 @@
+AndroidX source files are placed inside app/src/main/java. AndroidX resources are merged into app/src/main/res. No separate library project folders are included.
+Full Release build not run in this environment.
