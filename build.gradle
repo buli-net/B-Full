@@ -4,22 +4,4 @@ plugins {
 
 tasks.register('clean', Delete) {
     delete layout.buildDirectory
-    delete subprojects.collect { it.layout.buildDirectory.get().asFile }
-}
-
-
-// Keep local AndroidX source projects as the sole providers of these classes.
-subprojects {
-    configurations.configureEach {
-        exclude group: 'androidx.activity', module: 'activity'
-        exclude group: 'androidx.core', module: 'core'
-        // KTX extensions are included in the supplied androidx-core-local main-branch source.
-        exclude group: 'androidx.core', module: 'core-ktx'
-        exclude group: 'com.google.guava', module: 'listenablefuture'
-        exclude group: 'androidx.appcompat', module: 'appcompat'
-        exclude group: 'androidx.appcompat', module: 'appcompat-resources'
-        exclude group: 'androidx.recyclerview', module: 'recyclerview'
-        exclude group: 'androidx.swiperefreshlayout', module: 'swiperefreshlayout'
-        exclude group: 'androidx.versionedparcelable', module: 'versionedparcelable'
-    }
 }
