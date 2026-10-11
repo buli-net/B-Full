@@ -526,6 +526,7 @@ public class DeterministicKey extends ECKey {
      * @see <a href="https://bitcoin.stackexchange.com/questions/89261/why-does-importmulti-not-support-zpub-and-ypub/89281#89281">Why does importmulti not support zpub and ypub?</a>
      * @deprecated Use a {@link #serializePubB58(Network)} or a descriptor if you need output type information
      */
+    @Deprecated
     public String serializePubB58(Network network, ScriptType outputScriptType) {
         return toBase58(serialize(network, true, outputScriptType));
     }
@@ -548,6 +549,7 @@ public class DeterministicKey extends ECKey {
      * @see <a href="https://bitcoin.stackexchange.com/questions/89261/why-does-importmulti-not-support-zpub-and-ypub/89281#89281">Why does importmulti not support zpub and ypub?</a>
      * @deprecated Use a {@link #serializePrivB58(Network)} or a descriptor if you need output type information
      */
+    @Deprecated
     public String serializePrivB58(Network network, ScriptType outputScriptType) {
         return toBase58(serialize(network, false, outputScriptType));
     }
