@@ -3196,7 +3196,7 @@ Keep the private key secure. Anyone with it can spend the funds.
     <color name="call_notification_decline_color">#d93025</color>
     <color name="call_notification_answer_color">#1d873b</color>
     <attr name="nestedScrollViewStyle" format="reference" />
-    <attr name="fontVariationSettings" format="string" />
+    
     <attr name="fontProviderSystemFontFamily" format="string" />
     <declare-styleable name="FontFamily">
         <attr name="fontProviderAuthority" format="string" />
@@ -3397,7 +3397,7 @@ Keep the private key secure. Anyone with it can spend the funds.
         <attr name="fastScrollVerticalTrackDrawable" format="reference" />
         <attr name="fastScrollHorizontalThumbDrawable" format="reference" />
         <attr name="fastScrollHorizontalTrackDrawable" format="reference" />
-        <attr name="isScrollToTopEnabled" format="boolean" />
+        
     </declare-styleable>
     <public type="attr" name="layoutManager" />
     <public type="attr" name="spanCount" format="integer" />
@@ -3821,7 +3821,7 @@ Keep the private key secure. Anyone with it can spend the funds.
     <item name="pooling_container_listener_holder_tag" type="id" />
     <item name="is_pooling_container_tag" type="id" />
     <attr name="drawerLayoutStyle" format="reference" />
-    <attr name="elevation" format="dimension" />
+    
     <declare-styleable name="DrawerLayout">
         <attr name="elevation" />
     </declare-styleable>
