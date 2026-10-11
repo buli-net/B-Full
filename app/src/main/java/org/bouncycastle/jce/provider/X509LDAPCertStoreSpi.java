@@ -42,6 +42,23 @@ import org.bouncycastle.util.ldap.AndroidLdapClient;
 public class X509LDAPCertStoreSpi
     extends CertStoreSpi
 {
+    private final X509LDAPCertStoreParameters params;
+
+    public X509LDAPCertStoreSpi(CertStoreParameters parameters)
+        throws InvalidAlgorithmParameterException
+    {
+        super(parameters);
+
+        if (!(parameters instanceof X509LDAPCertStoreParameters))
+        {
+            throw new InvalidAlgorithmParameterException(
+                X509LDAPCertStoreSpi.class.getName() + ": parameter must be a "
+                    + X509LDAPCertStoreParameters.class.getName());
+        }
+
+        this.params = (X509LDAPCertStoreParameters)parameters;
+    }
+
     private static String[] FILTER_ESCAPE_TABLE = new String['\\' + 1];
 
     static
