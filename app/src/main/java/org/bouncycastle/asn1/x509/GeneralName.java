@@ -64,7 +64,8 @@ public class GeneralName
      * @deprecated use X500Name constructor.
      * @param dirName
      */
-        public GeneralName(
+    @Deprecated
+    public GeneralName(
         X509Name  dirName)
     {
         this.obj = X500Name.getInstance(dirName);
