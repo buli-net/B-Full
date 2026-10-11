@@ -661,6 +661,7 @@ public class Transaction extends BaseMessage {
     /**
      * @deprecated Instead use SigHash.ANYONECANPAY.value or SigHash.ANYONECANPAY.byteValue() as appropriate.
      */
+    @Deprecated
     public static final byte SIGHASH_ANYONECANPAY_VALUE = (byte) 0x80;
 
     private void readInputs(ByteBuffer payload) throws BufferUnderflowException, ProtocolException {
