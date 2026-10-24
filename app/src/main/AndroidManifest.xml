@@ -34,12 +34,12 @@
                 android:resource="@xml/widget_balance_info" />
         </receiver>
         <service
-            android:name="wallet.main.BitcoinSyncService"
+            android:name="wallet.sync.BitcoinSyncService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
         <receiver
-            android:name="wallet.main.BitcoinSyncBootReceiver"
+            android:name="wallet.sync.BitcoinSyncBootReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -51,7 +51,18 @@
             android:name="wallet.transaction.TransactionDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="wallet.main.SyncActivity"
+            android:name="wallet.forwarding.ForwardingServiceActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name="wallet.forwarding.ForwardingTransactionDetailActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name="wallet.network.NetworkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="wallet.sync.SyncActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="wallet.send.SendActivity"
@@ -80,7 +91,33 @@
                 <data android:mimeType="application/bitcoin-paymentrequest" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <!-- Password-protected NDEF tags may not expose a URI/MIME record to Android.
+                 Register the underlying tag technology so wallet appears in the system
+                 chooser alongside other compatible handlers before password entry. -->
+            <intent-filter android:label="@string/menu_send">
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_send_tech_filter" />
         </activity>
+        <activity
+            android:name="wallet.nfc.NfcReaderActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name="wallet.nfc.NfcWriteActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name="wallet.nfc.NfcCopyActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name="wallet.nfc.NfcSecurityActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name="wallet.request.RequestCoinsActivity"
             android:screenOrientation="portrait" />
@@ -112,19 +149,22 @@
             android:name="wallet.contacts.AddressBookActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="wallet.tools.WalletImportWifActivity"
+            android:name="wallet.importwallet.WalletImportWifActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="wallet.tools.WatchOnlyWalletActivity"
+            android:name="wallet.watchonly.WatchOnlyWalletActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="wallet.tools.PaperWalletActivity"
+            android:name="wallet.paperwallet.PaperWalletActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="wallet.tools.CoinControlActivity"
+            android:name="wallet.send.CoinControlActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="wallet.about.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="wallet.settings.CurrencyUnitActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="wallet.main.MainActivity"
