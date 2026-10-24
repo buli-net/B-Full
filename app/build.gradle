@@ -35,6 +35,8 @@ configurations.configureEach {
 }
 
 dependencies {
+    // LDAP client compatible with Android; replaces unavailable JNDI APIs in Bouncy Castle.
+    implementation 'com.unboundid:unboundid-ldapsdk:7.0.3'
     implementation 'androidx.activity:activity:1.13.0'
     implementation 'androidx.core:core:1.19.1'
     implementation 'androidx.appcompat:appcompat:1.8.0'
@@ -42,7 +44,6 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.2.0'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 
-    implementation 'org.bitcoinj:bitcoinj-core:0.17.1'
     implementation 'org.slf4j:slf4j-api:2.0.17'
     implementation 'uk.uuid.slf4j:slf4j-android:2.0.17-0'
 
